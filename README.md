@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfólio — José Wellington Júnior
 
 Landing page original inspirada na direção visual do modelo Lora (sem utilizar os seus ficheiros proprietários), em azul, desenvolvida com Next.js e TypeScript.
@@ -26,3 +27,7 @@ Criar repositório no GitHub, enviar os ficheiros e importar o repositório em v
 ## Nota
 
 Os projetos são descritos a partir do CV fornecido e do histórico de desenvolvimento. Links de projetos individuais não foram inventados; devem ser preenchidos quando conhecidos.
+=======
+# wellington-portfolio
+A personal portfolio.
+>>>>>>> 1eebc85d8c4f5672678741ca6dcf8f46face08d5
