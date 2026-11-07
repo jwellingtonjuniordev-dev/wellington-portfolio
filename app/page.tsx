@@ -23,7 +23,7 @@ const projects = [
     stack: ["Next.js", "Supabase", "PostgreSQL", "Auth"],
     icon: "◈",
     color: "violet",
-    url: "",
+    url: "https://github.com/jwellingtonjuniordev-dev/wellcontroled",
   },
   {
     name: "Belisco Delivery",
@@ -109,7 +109,7 @@ export default function Home() {
         <a className="brand" href="#inicio">
           JW<span>.</span>
         </a>
-        <nav className={menu ? "navlinks open" : "navlinks"}>
+        <nav id="portfolio-navigation" className={menu ? "navlinks open" : "navlinks"}>
           <a onClick={() => setMenu(false)} href="#sobre">
             Sobre
           </a>
@@ -128,7 +128,9 @@ export default function Home() {
         </a>
         <button
           className="hamb"
-          aria-label="Abrir menu"
+          aria-label={menu ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menu}
+          aria-controls="portfolio-navigation"
           onClick={() => setMenu(!menu)}
         >
           ☰
@@ -168,7 +170,7 @@ export default function Home() {
               </div>
               <div className="hero-social">
                 <a
-                  href="https://github.com/jwellingtonjuni"
+                  href="https://github.com/jwellingtonjuniordev-dev"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -250,7 +252,7 @@ export default function Home() {
             </div>
             <a
               className="text-link"
-              href="https://github.com/jwellingtonjuni"
+              href="https://github.com/jwellingtonjuniordev-dev"
               target="_blank"
               rel="noreferrer"
             >
@@ -435,7 +437,7 @@ export default function Home() {
         <span>© {new Date().getFullYear()} JOSÉ WELLINGTON JÚNIOR</span>
         <div>
           <a
-            href="https://github.com/jwellingtonjuni"
+            href="https://github.com/jwellingtonjuniordev-dev"
             target="_blank"
             rel="noreferrer"
           >
