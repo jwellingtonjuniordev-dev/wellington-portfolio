@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const projects = [
   {
     name: "Excel Analytics Platform",
@@ -100,6 +100,19 @@ const skills = [
 export default function Home() {
   const [filter, setFilter] = useState("Todos");
   const [menu, setMenu] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const saved = localStorage.getItem("portfolio-theme");
+    const dark = saved === "dark" || (saved === null && matchMedia("(prefers-color-scheme: dark)").matches);
+    setDarkMode(dark);
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+  }, []);
+  const toggleTheme = () => {
+    const next = !darkMode;
+    setDarkMode(next);
+    document.documentElement.dataset.theme = next ? "dark" : "light";
+    localStorage.setItem("portfolio-theme", next ? "dark" : "light");
+  };
   const visible = projects.filter(
     (p) => filter === "Todos" || p.category === filter,
   );
@@ -126,6 +139,10 @@ export default function Home() {
         <a className="navcontact" href="mailto:jwellingtonjuniordev@gmail.com">
           Vamos conversar <span>↗</span>
         </a>
+        <div className="nav-actions">
+          <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"} aria-pressed={darkMode} title={darkMode ? "Modo claro" : "Modo escuro"}>
+            <span aria-hidden="true">{darkMode ? "☀" : "☾"}</span>
+          </button>
         <button
           className="hamb"
           aria-label={menu ? "Fechar menu" : "Abrir menu"}
@@ -133,8 +150,9 @@ export default function Home() {
           aria-controls="portfolio-navigation"
           onClick={() => setMenu(!menu)}
         >
-          ☰
+          {menu ? "✕" : "☰"}
         </button>
+        </div>
       </header>
       <main>
         <section className="hero" id="inicio">
