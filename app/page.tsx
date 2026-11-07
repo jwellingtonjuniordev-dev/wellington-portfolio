@@ -106,11 +106,13 @@ export default function Home() {
     const dark = saved === "dark" || (saved === null && matchMedia("(prefers-color-scheme: dark)").matches);
     setDarkMode(dark);
     document.documentElement.dataset.theme = dark ? "dark" : "light";
+    document.documentElement.classList.toggle("dark-theme", dark);
   }, []);
   const toggleTheme = () => {
     const next = !darkMode;
     setDarkMode(next);
     document.documentElement.dataset.theme = next ? "dark" : "light";
+    document.documentElement.classList.toggle("dark-theme", next);
     localStorage.setItem("portfolio-theme", next ? "dark" : "light");
   };
   const visible = projects.filter(
