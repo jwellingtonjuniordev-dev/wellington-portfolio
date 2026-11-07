@@ -33,3 +33,18 @@ html,body{max-width:100%}
 @media(max-width:700px){.nav-actions{margin-left:auto}.theme-toggle{width:38px;height:38px}.hamb{color:inherit}.hero-actions{flex-wrap:wrap}.hero-social{flex-wrap:wrap;justify-content:flex-start;gap:16px}.hero-art{width:100%;overflow:hidden}.art-outline{max-width:95vw}.float-tag{right:7%}.hero-bottom{gap:15px;flex-wrap:wrap}.mock-content{gap:12px;padding:16px}.mock-icon{min-width:42px;font-size:32px}.project-info{padding:22px}.project-foot{gap:12px;flex-wrap:wrap}.contact h2{overflow-wrap:anywhere}}
 @media(max-width:380px){.hero h1{font-size:clamp(38px,11vw,48px);letter-spacing:-2px}.hero-art img{height:350px}.hero-art{min-height:350px}.art-circle{width:280px;height:280px}.art-outline{width:310px;height:310px}.timeline-row{grid-template-columns:90px minmax(0,1fr) 12px;gap:8px}.section h2{font-size:clamp(32px,10vw,40px)}.btn{gap:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Explicit theme surface overrides: avoid inherited light backgrounds */
+html.dark-theme{background:#0c1423;color-scheme:dark}
+html.dark-theme body{background:#0c1423;color:#edf3ff}
+html.dark-theme .nav,html.dark-theme .navlinks{background:#111e30;color:#edf3ff;border-color:#263950}
+html.dark-theme .hero,html.dark-theme .work{background:#121f32}
+html.dark-theme .project-card,html.dark-theme .eyebrow,html.dark-theme .filters button:not(.active){background:#182940;color:#edf3ff;border-color:#32445c}
+html.dark-theme .filters button.active{background:#3567ce;color:white}
+html.dark-theme .section,html.dark-theme footer{color:#edf3ff}
+html.dark-theme .hero-desc,html.dark-theme .about-grid p,html.dark-theme .skills-grid p,html.dark-theme .section-heading p,html.dark-theme .project-info p,html.dark-theme .timeline-row p{color:#b4c2d6}
+html.dark-theme .hero-social a{color:#e1eafa}
+html.dark-theme .theme-toggle{border-color:#59708c;color:#edf3ff}
+html.dark-theme .project-info .tags span{background:#293a52;color:#d4e0f3}
+html.dark-theme .contact{background:#09111e}
+html.dark-theme .hero-bottom{border-color:#2a3c53}
