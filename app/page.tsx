@@ -26,6 +26,17 @@ const projects = [
     url: "https://github.com/jwellingtonjuniordev-dev/wellcontroled",
   },
   {
+    name: "Crónicas do Trono Fragmentado",
+    category: "Game Dev",
+    featured: true,
+    description:
+      "MMORPG de fantasia medieval em desenvolvimento (MVP 1.0.1), com exploração, combate em tempo real, três classes jogáveis, missões, crafting e progressão persistente. Cliente Godot e servidor Python.",
+    stack: ["Godot 4", "GDScript", "Python", "FastAPI", "SQLite"],
+    icon: "⚔",
+    color: "slate",
+    url: "https://github.com/jwellingtonjuniordev-dev/TronoFragmentado",
+  },
+  {
     name: "Belisco Delivery",
     category: "Web",
     featured: false,
@@ -285,6 +296,7 @@ export default function Home() {
               "Todos",
               "Dados & SaaS",
               "Fintech",
+              "Game Dev",
               "Web",
               "Backend",
               "Dados",
@@ -311,7 +323,13 @@ export default function Home() {
                       <aside className="preview-sidebar"><b>{p.icon}</b><i/><i/><i/><i/></aside>
                       <div className="preview-main">
                         <div className="preview-heading"><strong>{p.name}</strong><span>● ONLINE</span></div>
-                        {p.category === "Fintech" ? (
+                        {p.category === "Game Dev" ? (
+                          <div className="preview-game">
+                            <div className="preview-game-title">CRÓNICAS DO TRONO FRAGMENTADO</div>
+                            <div className="preview-game-scene"><span>🌲</span><span>🏰</span><span>⚔️</span><span>🌲</span></div>
+                            <div className="preview-game-hud"><b>HP ███████░░</b><b>MP █████░░░░</b><small>Valedouro · MVP 1.0.1</small></div>
+                          </div>
+                        ) : p.category === "Fintech" ? (
                           <><div className="preview-metrics"><div>Saldo total<strong>€ 12.480</strong></div><div>Receitas<strong>€ 3.250</strong></div><div>Despesas<strong>€ 1.420</strong></div></div><div className="preview-bars">{[38,65,48,82,57,91,72,100,68,86].map((v,j)=><i key={j} style={{height:v+"%"}}/>)}</div></>
                         ) : p.category === "Dados & SaaS" ? (
                           <><div className="preview-metrics"><div>Registos<strong>2.845</strong></div><div>Indicadores<strong>24</strong></div><div>Relatórios<strong>18</strong></div></div><div className="preview-bars">{[28,52,45,73,58,94,66,88,77,100].map((v,j)=><i key={j} style={{height:v+"%"}}/>)}</div></>
