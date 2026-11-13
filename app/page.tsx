@@ -134,6 +134,7 @@ export default function Home() {
           <a onClick={() => setMenu(false)} href="#competencias">
             Competências
           </a>
+          <a onClick={() => setMenu(false)} href="#formacao">Formação</a>
           <a onClick={() => setMenu(false)} href="#experiencia">
             Experiência
           </a>
@@ -304,28 +305,31 @@ export default function Home() {
                 className={"project-card " + (p.featured ? "featured" : "")}
               >
                 <div className={"project-visual " + p.color}>
-                  <div className="mock-top">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <div className="mock-content">
-                    <div className="mock-icon">{p.icon}</div>
-                    <div className="mock-lines">
-                      <i />
-                      <i />
-                      <i />
+                  <div className="preview-window" aria-label={"Pré-visualização ilustrativa do projeto " + p.name}>
+                    <div className="preview-browser"><span/><span/><span/><small>{p.name}</small></div>
+                    <div className="preview-app">
+                      <aside className="preview-sidebar"><b>{p.icon}</b><i/><i/><i/><i/></aside>
+                      <div className="preview-main">
+                        <div className="preview-heading"><strong>{p.name}</strong><span>● ONLINE</span></div>
+                        {p.category === "Fintech" ? (
+                          <><div className="preview-metrics"><div>Saldo total<strong>€ 12.480</strong></div><div>Receitas<strong>€ 3.250</strong></div><div>Despesas<strong>€ 1.420</strong></div></div><div className="preview-bars">{[38,65,48,82,57,91,72,100,68,86].map((v,j)=><i key={j} style={{height:v+"%"}}/>)}</div></>
+                        ) : p.category === "Dados & SaaS" ? (
+                          <><div className="preview-metrics"><div>Registos<strong>2.845</strong></div><div>Indicadores<strong>24</strong></div><div>Relatórios<strong>18</strong></div></div><div className="preview-bars">{[28,52,45,73,58,94,66,88,77,100].map((v,j)=><i key={j} style={{height:v+"%"}}/>)}</div></>
+                        ) : p.name === "Belisco Delivery" ? (
+                          <><div className="preview-banner">BELISCO <span>Petiscaria Delivery</span></div><div className="preview-products"><span>🍔<small>Burgers</small></span><span>🍟<small>Porções</small></span><span>🥤<small>Bebidas</small></span></div></>
+                        ) : p.name === "TechWell" ? (
+                          <><div className="preview-banner">TECHWELL <span>Soluções digitais para o futuro</span></div><div className="preview-products"><span>⌘<small>Web</small></span><span>◇<small>Design</small></span><span>⚙<small>Tech</small></span></div></>
+                        ) : p.name.includes("Python") ? (
+                          <div className="preview-code"><span>class Developer:</span><span>  def build(self):</span><span>    return "Python"</span><span>print("Hello, World!")</span></div>
+                        ) : p.name.includes("SQL") ? (
+                          <div className="preview-code"><span>SELECT projeto, status</span><span>FROM portfolio</span><span>WHERE ativo = true;</span><span>-- PostgreSQL / MySQL</span></div>
+                        ) : (
+                          <div className="preview-kanban"><div>Por fazer<i/><i/><i/></div><div>Em progresso<i/><i/></div><div>Concluído<i/><i/><i/></div></div>
+                        )}
+                      </div>
                     </div>
-                    <div className="mock-chart">
-                      <b />
-                      <b />
-                      <b />
-                      <b />
-                      <b />
-                      <b />
-                    </div>
                   </div>
-                  <div className="visual-title">{p.name}</div>
+                  <div className="visual-title">PREVIEW ILUSTRATIVO · {p.name}</div>
                 </div>
                 <div className="project-info">
                   <div className="project-meta">
@@ -389,52 +393,41 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section experience" id="experiencia">
-          <div className="section-label">04 / PERCURSO</div>
-          <h2>
-            Experiência & <em>formação.</em>
-          </h2>
+        <section className="section experience" id="formacao">
+          <div className="section-label">04 / FORMAÇÃO ACADÉMICA</div>
+          <h2>Aprender para <em>evoluir.</em></h2>
           <div className="timeline">
             {[
-              [
-                "2026 — PRESENTE",
-                "CET — Tecnologias e Sistemas de Informação",
-                "Tech Academy · Nível 5",
-              ],
-              [
-                "2025 — 2026",
-                "Técnico de Manutenção Industrial",
-                "Kaffa Café · Diagnóstico e resolução de problemas",
-              ],
-              [
-                "2023 — 2024",
-                "Suporte Técnico",
-                "RHMais · Assistência e suporte a clientes",
-              ],
-              [
-                "2018 — 2022",
-                "Analista de Desenvolvimento de Produtos",
-                "Coteminas · Processos, relatórios e análise",
-              ],
-              [
-                "2014 — 2017",
-                "Supervisor de Suporte Técnico",
-                "Teleperformance · Gestão de equipas e KPIs",
-              ],
+              ["09/2026 — PRESENTE", "CET — Tecnologias e Sistemas de Informação", "Tech Academy · Qualificação nível 5"],
+              ["2026 — PRESENTE", "Formação prática autónoma em Full Stack", "Python, React, Vue, Node.js, APIs, bases de dados e Git"],
+              ["04/2022", "Desenvolvimento Web com PHP e MySQL", "Udemy"],
+              ["2010", "Ensino secundário", "Escola Estadual Padre José Maria Biezinger · Brasil"],
+            ].map((x) => (
+              <div className="timeline-row" key={x[0] + x[1]}>
+                <span>{x[0]}</span><div><h3>{x[1]}</h3><p>{x[2]}</p></div><span className="timeline-arrow">↗</span>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="section experience professional" id="experiencia">
+          <div className="section-label">05 / EXPERIÊNCIA PROFISSIONAL</div>
+          <h2>Experiência que <em>transforma.</em></h2>
+          <div className="timeline">
+            {[
+              ["02/11/2026 — PRESENTE", "Técnico de Informática", "CEDIS · Suporte e assistência técnica informática"],
+              ["06/08/2025 — 30/10/2026", "Técnico de Manutenção Industrial", "Kaffa Café, Lda. · Sintra, Portugal · Diagnóstico de avarias e manutenção preventiva e corretiva"],
+              ["05/2023 — 01/2024", "Suporte Técnico", "RHMais · Porto, Portugal · Apoio em internet, IPTV/RF e telefonia"],
+              ["09/2018 — 04/2022", "Analista de Desenvolvimento de Produtos", "Coteminas S/A · Brasil · Registos, relatórios de produção e análise de paragens"],
+              ["06/2014 — 09/2017", "Supervisor de Suporte Técnico", "Teleperformance SGA · Brasil · Coordenação de equipas, formação, KPIs e auditoria"],
             ].map((x) => (
               <div className="timeline-row" key={x[0]}>
-                <span>{x[0]}</span>
-                <div>
-                  <h3>{x[1]}</h3>
-                  <p>{x[2]}</p>
-                </div>
-                <span className="timeline-arrow">↗</span>
+                <span>{x[0]}</span><div><h3>{x[1]}</h3><p>{x[2]}</p></div><span className="timeline-arrow">↗</span>
               </div>
             ))}
           </div>
         </section>
         <section className="contact" id="contacto">
-          <div className="section-label">05 / VAMOS CRIAR ALGO</div>
+          <div className="section-label">06 / VAMOS CRIAR ALGO</div>
           <p>TENS UM PROJETO EM MENTE?</p>
           <h2>
             Vamos fazer
