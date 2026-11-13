@@ -82,3 +82,12 @@ html.dark-theme .hero-bottom{border-color:#2a3c53}
 #formacao,#experiencia{scroll-margin-top:90px}
 @media(max-width:700px){.preview-window{height:190px}.preview-main{padding:11px}.preview-metrics strong{font-size:11px}.preview-sidebar{width:37px}.preview-bars{height:51px}.navlinks{gap:20px}}
 @media(max-width:380px){.preview-window{height:170px}.preview-metrics div{padding:5px}.preview-heading strong{font-size:10px}}
+
+
+/* Fantasy RPG card preview: illustrative, not a gameplay screenshot */
+.preview-game{height:130px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,#233b3c,#506747 55%,#1c302d);border-radius:6px;padding:10px;color:#f4e9c8;overflow:hidden}
+.preview-game-title{text-align:center;font:800 9px Manrope;letter-spacing:1px;text-shadow:0 2px 3px #0009}
+.preview-game-scene{display:flex;align-items:center;justify-content:space-around;font-size:27px;filter:drop-shadow(0 3px 3px #0008)}
+.preview-game-hud{display:flex;gap:9px;align-items:center;justify-content:space-between;background:#101d1bc9;padding:5px;border-radius:4px;font:7px monospace;white-space:nowrap}
+.preview-game-hud small{font-size:7px;color:#d5e2cb}
+@media(max-width:380px){.preview-game-hud{gap:3px;font-size:6px}.preview-game-hud small{font-size:6px}}
